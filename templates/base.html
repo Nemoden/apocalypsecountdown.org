@@ -21,10 +21,31 @@
   <link rel="stylesheet" href="/static/css/styles.css" type="text/css" media="screen" charset="utf-8">
   <!-- Even if only simple apocalypse counter is needed, can't live without jQuery anyway -->
   <script type='text/javascript' charset='utf-8' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+  {%- for script in scripts %}
+  <script type='text/javascript' charset='utf-8' src='{{ script }}'></script>
+  {% endfor %}
 
   <title>{% block title %}The End Of The World is coming! The countdown to apocalypse{% endblock %}</title>
 </head>
+
 <body>
+  <!-- google analytics -->
+  {% block google_analytics %}
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35027262-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  {% endblock %}
+  <!-- google analytics end -->
+
   {% block body %}
   {% endblock %}
 </body>

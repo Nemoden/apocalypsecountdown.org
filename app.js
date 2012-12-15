@@ -6,7 +6,10 @@
 var express = require("express"),
     app = express(),
     cons = require('consolidate'),
-    swig = require('swig');
+    swig = require('swig'),
+    config = require('./config');
+
+app.use('/static', express.static(__dirname + '/static'));
 
 app.engine('html', cons.swig);
 // .html is default extension for the templates
@@ -25,7 +28,7 @@ swig.init({
 });
 
 app.get('/', function(req,res) {
-  res.render('index');
+  res.render('index', {scripts: config.js});
 });
 
 app.listen(3000);

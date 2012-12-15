@@ -60,6 +60,13 @@
    */
   $.fn.apocalypseCountdown  = function(settings) {
     var $this = $(this),
+        timer = $('.timer', $this),
+        container = {
+          days: $('.timer-days', timer),
+          hours: $('.timer-hours', timer),
+          minutes: $('.timer-minutes', timer),
+          seconds: $('.timer-seconds', timer),
+        },
         settings  = $.extend(default_settings, settings || {}),
         timestamps = {
           to_ts: getTimestamp(settings.to),
@@ -74,11 +81,15 @@
         next.seconds  = getSecondsDiff(settings.from, settings.to);
       }
       else {
-        next = { seconds: ++current.seconds };
+        next = { seconds: --current.seconds };
       }
       next = $.extend(next, {date: secondsToDate(next.seconds)}  );
       $this.data('current', next);
-      $this.html(dateToStr(next.date));
+      container.days.html(formatTimeElement(next.date.d));
+      container.hours.html(formatTimeElement(next.date.h));
+      container.minutes.html(formatTimeElement(next.date.m));
+      container.seconds.html(formatTimeElement(next.date.s));
+      //$this.html(dateToStr(next.date));
     }
 
     interval = setInterval(function() {

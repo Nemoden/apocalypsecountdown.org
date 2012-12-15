@@ -1,0 +1,17 @@
+.timer td {
+  font-size: 6em;
+}
+
+.timer .timer-sep {
+  color: #666;
+}
+
+.timer-bigsep {
+  width: 46px;
+}
+
+.timer-titles .timer-title {
+  font-size: 1.4em;
+  color: #666;
+  text-align: center;
+}

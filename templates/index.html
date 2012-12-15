@@ -1,0 +1,28 @@
+{% extends "./base.html" %}
+{% block body %}
+<div id='countdown' class='apocalypse-countdown'>
+  <table border="0">
+    <tr class='timer'>
+      <td class='timer-days'></td>
+      <td class='timer-hours'></td>
+      <td class='timer-sep'>:</td>
+      <td class='timer-minutes'></td>
+      <td class='timer-sep'>:</td>
+      <td class='timer-seconds'></td>
+    </tr>
+    <tr class='timer-titles'>
+      <td class='timer-title'>Days</td>
+      <td class='timer-title'>Hours</td>
+      <td></td> <!-- sep -->
+      <td class='timer-title'>Minutes</td>
+      <td></td> <!-- sep -->
+      <td class='timer-title'>Seconds</td>
+    </tr>
+  </table>
+</div>
+to the end of the world
+<script type='text/javascript' charset='utf-8'>
+  // it's a final countdown... ta-da-da-daaaa... ta-da-ta-ta-da-daaaa
+  $('#countdown').apocalypseCountdown({style: 'stylish'});
+</script>
+{% endblock %}

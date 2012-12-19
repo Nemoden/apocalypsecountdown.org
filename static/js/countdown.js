@@ -10,7 +10,7 @@
 !function($,undefined) {
   var default_settings = {
         from : new Date(),
-        to : new Date("21 Dec 2012")
+        to : new Date("21 Dec 2012 12:00")
       };
 
   function getTimestamp(date) {

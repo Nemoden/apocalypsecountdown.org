@@ -1,5 +1,4 @@
 /**
- * -*- coding: utf-8 -*-
  * @author Kirill "Nemoden" K <i@nemoden.com>
  * $ Date: Sat 15 Dec 2012 06:39:13 PM VLAT $
  */

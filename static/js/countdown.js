@@ -80,6 +80,9 @@
     if (post_apocalypse && d.location.indexOf("post-apocalypse") == -1) {
       d.location.replace('/post-apocalypse/');
     }
+    else if (!post_apocalypse && d.location.indexOf("post-apocalypse") != -1) {
+      d.location.replace('/');
+    }
     settings = $.extend(settings, timestamps);
 
     var updateCounter = (function() {

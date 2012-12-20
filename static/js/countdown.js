@@ -85,10 +85,12 @@
       }
       next = $.extend(next, {date: secondsToDate(next.seconds)}  );
       $this.data('current', next);
-      container.days.html(formatTimeElement(next.date.d));
-      container.hours.html(formatTimeElement(next.date.h));
-      container.minutes.html(formatTimeElement(next.date.m));
-      container.seconds.html(formatTimeElement(next.date.s));
+      with (container) { with (next.date) {
+        days.html(formatTimeElement(d));
+        hours.html(formatTimeElement(h));
+        minutes.html(formatTimeElement(m));
+        seconds.html(formatTimeElement(s));
+      }}
       //$this.html(dateToStr(next.date));
     }
 

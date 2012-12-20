@@ -7,10 +7,10 @@
  *
  * $('#counter').apocalypseCountdown();
  */
-!function($,undefined) {
+!function($,d,undefined) {
   var default_settings = {
         from : new Date(),
-        to : new Date("21 Dec 2012 12:00")
+        to : new Date("21 Dec 2012 18:00")
       };
 
   function getTimestamp(date) {
@@ -47,6 +47,10 @@
   function formatTimeElement(el) {
     return parseInt(el,10) < 10 ? "0" + el : el;
   }
+  function formatDayElement(el) {
+    var intEl = parseInt(el,10);
+    return intEl < 10 ? "00" + el : (intEl < 100 ? "0" + el : el);
+  }
 
   function dateToStr(date) {
     return formatTimeElement(date.d) + " Days, " + formatTimeElement(date.h) + ":" + formatTimeElement(date.m) + ":" + formatTimeElement(date.s);
@@ -70,29 +74,38 @@
         settings  = $.extend(default_settings, settings || {}),
         timestamps = {
           to_ts: getTimestamp(settings.to),
-          from_ts: getTimestamp(settings.to)
-        };
+          from_ts: getTimestamp(settings.from)
+        },
+        post_apocalypse = timestamps.from_ts > timestamps.to_ts;
+    if (post_apocalypse && d.location.indexOf("post-apocalypse") == -1) {
+      d.location.replace('/post-apocalypse/');
+    }
     settings = $.extend(settings, timestamps);
 
-    function updateCounter() {
+    var updateCounter = (function() {
       var current = $this.data('current'),
           next = {};
       if (current == undefined) { // no data yet assigned to the container
         next.seconds  = getSecondsDiff(settings.from, settings.to);
       }
       else {
-        next = { seconds: --current.seconds };
+        if (post_apocalypse) {
+          next = { seconds: ++current.seconds };
+        }
+        else {
+          next = { seconds: --current.seconds };
+        }
       }
       next = $.extend(next, {date: secondsToDate(next.seconds)}  );
       $this.data('current', next);
       with (container) { with (next.date) {
-        days.html(formatTimeElement(d));
+        days.html(formatDayElement(d));
         hours.html(formatTimeElement(h));
         minutes.html(formatTimeElement(m));
         seconds.html(formatTimeElement(s));
       }}
       //$this.html(dateToStr(next.date));
-    }
+    })
 
     interval = setInterval(function() {
       updateCounter();
@@ -100,4 +113,4 @@
 
   };
 
-}(jQuery);
+}(jQuery, document);

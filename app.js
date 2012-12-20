@@ -27,7 +27,15 @@ swig.init({
 });
 
 app.get('/', function(req,res) {
-  res.render('index', {scripts: config.js});
+  res.render('index', {
+    scripts: config.js, 
+  });
+});
+
+app.get('/post-apocalypse/', function(req,res) {
+  res.render('postapocalypse', {
+    scripts: config.js, 
+  });
 });
 
 app.listen(3000);

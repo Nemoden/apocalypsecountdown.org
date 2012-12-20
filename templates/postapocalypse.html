@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}21 December, 2012 the world as we knew it has gone for good and been reborn.{% endblock %}
+{% block content %}
+<div id='countdown-wrapper'>
+  <div id='countdown' class='apocalypse-countdown'>
+    <div class='the-end min'>
+      <div class='apocalypse-date'>21 Dec, 2012 18:00</div>
+      <div>the world, as new knew it, has gone for good</div>
+    </div>
+    <div>
+      <table border="0" style='width: 100%;'>
+        {% include "timer.html" %}
+      </table>
+    </div>
+    <div class='the-reborn'>passed in post-apocalypse world</div>
+  </div>
+</div>
+<script type='text/javascript' charset='utf-8'>
+  $('#countdown').apocalypseCountdown();
+</script>
+{% endblock %}

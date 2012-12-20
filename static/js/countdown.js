@@ -77,10 +77,10 @@
           from_ts: getTimestamp(settings.from)
         },
         post_apocalypse = timestamps.from_ts > timestamps.to_ts;
-    if (post_apocalypse && d.location.indexOf("post-apocalypse") == -1) {
+    if (post_apocalypse && d.location.pathname != '/post-apocalypse/') {
       d.location.replace('/post-apocalypse/');
     }
-    else if (!post_apocalypse && d.location.indexOf("post-apocalypse") != -1) {
+    else if (!post_apocalypse && d.location.pathname == '/post-apocalypse/') {
       d.location.replace('/');
     }
     settings = $.extend(settings, timestamps);

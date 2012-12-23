@@ -89,7 +89,12 @@
       var current = $this.data('current'),
           next = {};
       if (current == undefined) { // no data yet assigned to the container
-        next.seconds  = getSecondsDiff(settings.from, settings.to);
+        if (post_apocalypse) {
+          next.seconds  = getSecondsDiff(settings.to, settings.from);
+        }
+        else {
+          next.seconds  = getSecondsDiff(settings.from, settings.to);
+        }
       }
       else {
         if (post_apocalypse) {

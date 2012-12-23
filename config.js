@@ -1,6 +1,6 @@
 var config = {
   "js": {
-    "countdown_js": "/static/js/countdown.js?r=6"
+    "countdown_js": "/static/js/countdown.js?r=7"
   }
 };
 

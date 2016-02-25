@@ -1,6 +1,8 @@
 The End Of The World Promotion
 ===
 
+[![Join the chat at https://gitter.im/Nemoden/apocalypsecountdown.org](https://badges.gitter.im/Nemoden/apocalypsecountdown.org.svg)](https://gitter.im/Nemoden/apocalypsecountdown.org?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Instructions
 ---
 
